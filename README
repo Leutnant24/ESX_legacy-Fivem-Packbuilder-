@@ -1,0 +1,52 @@
+FiveM Pack Builder (Created by Leutnant)
+=======================================
+
+Was es macht:
+- Du ziehst 1..n Ordner (auch 80+) rein oder wählst sie per Button
+- Tool sammelt rekursiv .ydd/.ytd/.meta/.ymt usw.
+- Kopiert nach stream/ (ydd/ytd/...) und data/ (meta/ymt)
+- Duplikate bekommen automatisch Suffix (keine Überschreibung)
+- Erstellt/erweitert fxmanifest.lua (append-only)
+- Erstellt:
+  - _ADD_TO_SERVER_CFG.txt  (eine Zeile: ensure <name>)
+  - _ALL_ENSURES.txt        (Masterliste im Parent-Ordner; Fallback auch in Resource)
+- Erstellt builder.log
+- Button: Explorer öffnen
+- Button: OpenIV öffnen (OpenIV.exe Pfad einmal setzen)
+
+Voraussetzungen:
+- Windows
+- Python 3.x (empfohlen)
+- Optional/Empfohlen:
+  - tkinterdnd2 (Drag&Drop)
+  - pillow (Preview für JPG/WEBP + scaling)
+  - pyinstaller (EXE bauen)
+
+Installation:
+1) INSTALL_Abhaengigkeiten.bat doppelklicken
+2) START_Tool.bat doppelklicken
+
+EXE bauen:
+- BUILD_EXE.bat doppelklicken
+- Danach: dist\FiveM_Pack_Builder_Leutnant.exe
+
+Im Tool:
+- Sources hinzufügen oder reinziehen
+- Zielordner: deine Resource (z.B. ...\resources\[clothes]\my_pack)
+- Resource-Name: z.B. my_pack
+- Modus:
+  - merge: hinzufügen
+  - replace: stream/ und data/ im Ziel löschen und neu bauen
+- OpenIV.exe einmal auswählen (📌)
+- Start
+
+Nach dem Build:
+- In server.cfg eintragen:
+  ensure my_pack
+- Oder aus _ADD_TO_SERVER_CFG.txt kopieren
+- Alle Ensures gesammelt in _ALL_ENSURES.txt
+
+Troubleshooting:
+- Drag&Drop geht nicht -> pip install tkinterdnd2
+- Preview zeigt JPG/WEBP nicht -> pip install pillow
+- OpenIV Button: OpenIV.exe Pfad setzen
